@@ -1,0 +1,15 @@
+.tmp/
+.cache/
+.git/
+build/
+dist/
+.strapi/
+**/node_modules
+data/
+backup/
+README.md
+.env
+.env.example
+.gitignore
+.strapi-updater.json
+.DS_Store

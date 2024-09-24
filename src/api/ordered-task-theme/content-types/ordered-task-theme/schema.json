@@ -1,0 +1,40 @@
+{
+  "kind": "collectionType",
+  "collectionName": "ordered_task_themes",
+  "info": {
+    "singularName": "ordered-task-theme",
+    "pluralName": "ordered-task-themes",
+    "displayName": "OrderedTaskTheme",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "ExamPosition": {
+      "type": "integer",
+      "unique": true,
+      "min": 1
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "Title",
+      "required": true
+    },
+    "BlockColor": {
+      "type": "enumeration",
+      "enum": [
+        "GREEN",
+        "TEAL",
+        "CYAN",
+        "BROWN",
+        "BLACK"
+      ],
+      "default": "BLACK"
+    }
+  }
+}

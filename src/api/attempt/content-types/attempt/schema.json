@@ -1,0 +1,54 @@
+{
+  "kind": "collectionType",
+  "collectionName": "attempts",
+  "info": {
+    "singularName": "attempt",
+    "pluralName": "attempts",
+    "displayName": "Attempt",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Student": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "attempts"
+    },
+    "Status": {
+      "type": "enumeration",
+      "enum": [
+        "completed",
+        "not_started",
+        "in_progress",
+        "not_passed"
+      ],
+      "default": "not_started"
+    },
+    "AttemptTaskValues": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::attempt-task-value.attempt-task-value",
+      "mappedBy": "Attempt"
+    },
+    "Test": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::test.test",
+      "inversedBy": "Attempts"
+    },
+    "slug": {
+      "type": "customField",
+      "options": {
+        "disable-regenerate": true
+      },
+      "customField": "plugin::strapi-advanced-uuid.uuid"
+    },
+    "CompletedAt": {
+      "type": "datetime"
+    }
+  }
+}

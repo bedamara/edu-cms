@@ -1,0 +1,52 @@
+{
+  "kind": "collectionType",
+  "collectionName": "tests",
+  "info": {
+    "singularName": "test",
+    "pluralName": "tests",
+    "displayName": "Test",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Tasks": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::task.task"
+    },
+    "MadeBy": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
+    },
+    "AssignedTo": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "plugin::users-permissions.user"
+    },
+    "CompleteTestBefore": {
+      "type": "datetime"
+    },
+    "Attempts": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::attempt.attempt",
+      "mappedBy": "Test"
+    },
+    "AvailableAttempts": {
+      "type": "integer",
+      "default": 1,
+      "min": 1
+    },
+    "slug": {
+      "type": "customField",
+      "customField": "plugin::strapi-advanced-uuid.uuid",
+      "options": {
+        "disable-regenerate": true
+      }
+    }
+  }
+}

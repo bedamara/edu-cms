@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "task_themes",
+  "info": {
+    "singularName": "task-theme",
+    "pluralName": "task-themes",
+    "displayName": "TaskTheme",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "Title",
+      "required": true
+    },
+    "Description": {
+      "type": "string"
+    },
+    "OrderedTaskTheme": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::ordered-task-theme.ordered-task-theme"
+    }
+  }
+}

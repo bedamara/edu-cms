@@ -1,0 +1,52 @@
+{
+  "kind": "collectionType",
+  "collectionName": "tasks",
+  "info": {
+    "singularName": "task",
+    "pluralName": "tasks",
+    "displayName": "Task",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Theme": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::task-theme.task-theme"
+    },
+    "Description": {
+      "type": "blocks"
+    },
+    "Answer": {
+      "type": "string"
+    },
+    "AnswerDescription": {
+      "type": "blocks"
+    },
+    "File": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "slug": {
+      "type": "customField",
+      "options": {
+        "disable-regenerate": true
+      },
+      "customField": "plugin::strapi-advanced-uuid.uuid"
+    },
+    "AttemptTaskValues": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::attempt-task-value.attempt-task-value",
+      "mappedBy": "Task"
+    }
+  }
+}
